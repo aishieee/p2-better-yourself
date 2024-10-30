@@ -97,3 +97,16 @@ header h1 {
     color: #333;
 }
 
+.habit-remove {
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 5px;
+    border: none;
+    background: none;
+    transition: color 0.3s ease;
+}
+
+.habit-remove:hover {
+    color: #ff6666;
+}
