@@ -75,3 +75,25 @@ header h1 {
     text-align: center;
 }
 
+#habits {
+    list-style: none;
+    padding: 0;
+}
+
+#habits li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 1em;
+}
+
+#habits li:last-child {
+    border-bottom: none;
+}
+
+.habit-text {
+    color: #333;
+}
+
