@@ -1,6 +1,6 @@
 
 
-/* Header section */
+/* Header */
 header {
     text-align: center;
     padding: 20px;
@@ -13,4 +13,10 @@ header h1 {
     font-family: "Merriweather Sans", serif;
     font-style: normal;
     margin: 0;
+}
+
+/* Habit form section */ 
+#habit-form {
+    max-width: 400px;
+    margin: 20px auto;
 }
