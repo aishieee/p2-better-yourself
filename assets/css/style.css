@@ -58,3 +58,19 @@ header h1 {
 #add-habit-form button:hover {
     background-color: #a366ff;
 }
+
+/* Habit list section */
+
+#habit-list {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#habit-list h2 {
+    color: #d871fb;
+    font-size: 22px; 
+    font-family: "Merriweather Sans", serif;
+    font-style: normal;
+    margin-bottom: 10px;
+    text-align: center;
+}
