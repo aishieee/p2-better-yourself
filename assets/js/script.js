@@ -8,6 +8,11 @@ function addHabit(event) {
     event.preventDefault();
     const habitText = habitInput.value.trim();
     if (habitText) {
-        
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span class="habit-text">${habitText}</span>
+            <button class="habit-remove">Remove</button>
+        `;
+        habitsList.appendChild(listItem);
     }
 }
