@@ -14,5 +14,7 @@ function addHabit(event) {
             <button class="habit-remove">Remove</button>
         `;
         habitsList.appendChild(listItem);
+        habitInput.value = ''; // Clear the input field
+        saveHabits(); // Save habits when a new one is added
     }
 }
