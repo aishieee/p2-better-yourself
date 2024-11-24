@@ -6,5 +6,8 @@ const habitList = document.getElementById('habits');
 // Function for user to add habit to the list from input field
 function addHabit(event) {
     event.preventDefault();
-    
+    const habitText = habitInput.value.trim();
+    if (habitText) {
+        
+    }
 }
