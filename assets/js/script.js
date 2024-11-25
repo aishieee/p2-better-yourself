@@ -3,8 +3,6 @@ const habitForm = document.getElementById('add-habit-form');
 const habitInput = document.getElementById('habit-input');
 const habitsList = document.getElementById('habits');
 
-//////Save and retrive habits from the browser storage//////
-
 // Save habits to local storage
 function saveHabits() {
     const habits = [];
@@ -55,3 +53,7 @@ function removeHabit(event) {
 // Listen for form submissions and click events
 habitForm.addEventListener('submit', addHabit);
 habitsList.addEventListener('click', removeHabit);
+
+// Render stored habits on page load
+renderHabits();
+
