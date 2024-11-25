@@ -19,5 +19,14 @@ function addHabit(event) {
     }
 }
 
+// Function to remove a habit from the list
+function removeHabit(event) {
+    if (event.target.classList.contains('habit-remove')) {
+        const listItem = event.target.parentElement;
+        habitsList.removeChild(listItem);
+        saveHabits(); // Save changes after a habit is removed
+    }
+}
+
 // Listen for form submissions and click events
 habitForm.addEventListener('submit', addHabit);
