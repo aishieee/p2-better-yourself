@@ -3,6 +3,17 @@ const habitForm = document.getElementById('add-habit-form');
 const habitInput = document.getElementById('habit-input');
 const habitsList = document.getElementById('habits');
 
+//////Save and retrive habits from the browser storage//////
+
+// Save habits to local storage
+function saveHabits() {
+    const habits = [];
+    document.querySelectorAll('#habits .habit-text').forEach(item => {
+        habits.push(item.textContent);
+    });
+    localStorage.setItem('habits', JSON.stringify(habits));
+}
+
 // Function for user to add habit to the list from input field
 function addHabit(event) {
     event.preventDefault();
