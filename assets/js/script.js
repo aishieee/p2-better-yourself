@@ -30,3 +30,4 @@ function removeHabit(event) {
 
 // Listen for form submissions and click events
 habitForm.addEventListener('submit', addHabit);
+habitsList.addEventListener('click', removeHabit);
