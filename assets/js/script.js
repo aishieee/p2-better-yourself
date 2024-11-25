@@ -14,6 +14,19 @@ function saveHabits() {
     localStorage.setItem('habits', JSON.stringify(habits));
 }
 
+// Retrieve habits from local storage and render them
+function renderHabits() {
+    const storedHabits = JSON.parse(localStorage.getItem('habits') || '[]');
+    storedHabits.forEach(habitText => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <span class="habit-text">${habitText}</span>
+            <button class="habit-remove">Remove</button>
+        `;
+        habitsList.appendChild(listItem);
+    });
+}
+
 // Function for user to add habit to the list from input field
 function addHabit(event) {
     event.preventDefault();
