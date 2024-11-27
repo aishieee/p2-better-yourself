@@ -5,11 +5,7 @@ const resetHabits = document.getElementById('reset-habits');
 const habitRows = document.getElementById('habit-rows');
 
 // Save habits to local storage
-function saveHabits() {
-    const habits = [];
-    document.querySelectorAll('#habits .habit-text').forEach(item => {
-        habits.push(item.textContent);
-    });
+function saveHabits(habits) {
     localStorage.setItem('habits', JSON.stringify(habits));
 }
 
