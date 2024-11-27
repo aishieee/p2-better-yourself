@@ -40,58 +40,6 @@ header h1 {
     background-color: #a366ff;
 }
 
-/* Habit list section */
-
-#habit-list {
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-#habit-list h2 {
-    color: #d871fb;
-    font-size: 22px; 
-    font-family: "Merriweather Sans", serif;
-    font-style: normal;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-#habits {
-    list-style: none;
-    padding: 0;
-}
-
-#habits li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    font-size: 1em;
-}
-
-#habits li:last-child {
-    border-bottom: none;
-}
-
-.habit-text {
-    color: #333;
-}
-
-.habit-remove {
-    color: #dc3545;
-    cursor: pointer;
-    font-size: 0.9em;
-    padding: 5px;
-    border: none;
-    background: none;
-    transition: color 0.3s ease;
-}
-
-.habit-remove:hover {
-    color: #ff6666;
-}
-
 /* Days of the week table */ 
 
 table {
