@@ -26,26 +26,7 @@ header h1 {
     text-align: center;
 }
 
-#habit-form h2 {
-    color: #ffffff;
-    font-size: 22px;
-    font-family: "Merriweather Sans", serif;
-    font-style: normal;
-    font-weight: 100;
-    margin-bottom: 10px;
-    text-shadow: 0.5px 0.5px 0 #000;
-}
-
-#add-habit-form input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#add-habit-form button {
+#habit-submit, #reset-habits {
     background-color: #d871fb;
     color: #fff;
     padding: 10px 15px;
@@ -55,7 +36,7 @@ header h1 {
     font-weight: bold;
 }
 
-#add-habit-form button:hover {
+#habit-submit:hover, #reset-habits:hover {
     background-color: #a366ff;
 }
 
