@@ -1,7 +1,8 @@
 // Select elements from the DOM
-const habitForm = document.getElementById('add-habit-form');
 const habitInput = document.getElementById('habit-input');
-const habitsList = document.getElementById('habits');
+const habitSubmit = document.getElementById('habit-submit');
+const resetHabits = document.getElementById('reset-habits');
+const habitRows = document.getElementById('habit-rows');
 
 // Save habits to local storage
 function saveHabits() {
