@@ -110,3 +110,27 @@ header h1 {
 .habit-remove:hover {
     color: #ff6666;
 }
+
+/* Days of the week table */ 
+
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    overflow-x: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+th {
+    background-color: #d871fb;
+    color: white;
+}
