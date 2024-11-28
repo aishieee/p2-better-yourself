@@ -41,3 +41,13 @@ function renderHabitInTable(habit) {
     habitRows.appendChild(row);  // Add the row to the table
 }
 
+habitSubmit.addEventListener('click', function (event) {
+    event.preventDefault();
+    const habitName = habitInput.value.trim();
+    if (habitName) {
+        saveHabit(habitName);  // Save the habit
+        renderHabitInTable({ name: habitName });  // Immediately render it in the table
+        habitInput.value = '';  // Clear the input field
+    }
+});
+
