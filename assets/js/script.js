@@ -51,3 +51,20 @@ habitSubmit.addEventListener('click', function (event) {
     }
 });
 
+// Render habit in table
+function renderHabitInTable(habit) {
+    const row = document.createElement('tr');
+
+    // Habit name cell
+    const habitCell = document.createElement('td');
+    habitCell.textContent = habit.name;
+    row.appendChild(habitCell);
+
+    habitRows.appendChild(row);  // Add the row to the table
+}
+
+
+
+
+
+
