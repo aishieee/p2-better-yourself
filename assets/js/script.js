@@ -10,3 +10,10 @@ habitSubmit.addEventListener('click', function (event) {
     const habitName = habitInput.value.trim();
     console.log('Habit added:', habitName);  // For now, log habit name to the console
 });
+
+// Save habit to localStorage
+function saveHabit(habitName) {
+    const habits = JSON.parse(localStorage.getItem('habits') || '[]');
+    habits.push({ name: habitName, progress: Array(7).fill(false) });  // Add new habit to existing list
+    localStorage.setItem('habits', JSON.stringify(habits));  // Save habits to localStorage
+}
