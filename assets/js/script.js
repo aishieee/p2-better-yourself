@@ -63,6 +63,38 @@ function renderHabitInTable(habit) {
     habitRows.appendChild(row);  // Add the row to the table
 }
 
+// Add habit and render it in the table
+habitSubmit.addEventListener('click', function (event) {
+    event.preventDefault();
+    const habitName = habitInput.value.trim();
+    if (habitName) {
+        saveHabit(habitName);  // Save the habit
+        renderHabitInTable({ name: habitName });  // Immediately render it in the table
+        habitInput.value = '';  // Clear the input field
+    }
+});
+
+// Render habit with checkboxes for each day of the week
+function renderHabitInTable(habit) {
+    const row = document.createElement('tr');
+
+    // Habit name cell
+    const habitCell = document.createElement('td');
+    habitCell.textContent = habit.name;
+    row.appendChild(habitCell);
+
+    // Add checkboxes for each day of the week
+    for (let i = 0; i < 7; i++) {
+        const cell = document.createElement('td');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        cell.appendChild(checkbox);
+        row.appendChild(cell);
+    }
+
+    habitRows.appendChild(row);  // Add the row to the table
+}
+
 
 
 
