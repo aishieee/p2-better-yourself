@@ -17,3 +17,13 @@ function saveHabit(habitName) {
     habits.push({ name: habitName, progress: Array(7).fill(false) });  // Add new habit to existing list
     localStorage.setItem('habits', JSON.stringify(habits));  // Save habits to localStorage
 }
+
+// Add habit and save it
+habitSubmit.addEventListener('click', function (event) {
+    event.preventDefault();
+    const habitName = habitInput.value.trim();
+    if (habitName) {
+        saveHabit(habitName);  // Save habit
+        habitInput.value = '';  // Clear input field
+    }
+});
