@@ -95,6 +95,38 @@ function renderHabitInTable(habit) {
     habitRows.appendChild(row);  // Add the row to the table
 }
 
+// Update habit progress in localStorage
+function updateHabitProgress(habitName, dayIndex, isChecked) {
+    const habits = JSON.parse(localStorage.getItem('habits') || '[]');
+    const habit = habits.find(h => h.name === habitName);
+    if (habit) {
+        habit.progress[dayIndex] = isChecked;  // Update the progress for the specific day
+        localStorage.setItem('habits', JSON.stringify(habits));  // Save updated habits
+    }
+}
+
+// Render habit with checkboxes and event listener for progress
+function renderHabitInTable(habit) {
+    const row = document.createElement('tr');
+
+    // Habit name cell
+    const habitCell = document.createElement('td');
+    habitCell.textContent = habit.name;
+    row.appendChild(habitCell);
+
+    // Add checkboxes for each day and update progress when checked
+    for (let i = 0; i < 7; i++) {
+        const cell = document.createElement('td');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = habit.progress[i] || false;  // Ensure default false when habit progress is undefined, null, or false
+        checkbox.addEventListener('change', () => {
+            updateHabitProgress(habit.name, i, checkbox.checked);  // Update progress on change
+        });
+        cell.appendChild(checkbox);
+        row.appendChild(cell);
+    }
+}
 
 
 
