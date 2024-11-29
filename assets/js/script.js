@@ -14,19 +14,6 @@ function loadHabits() {
     return JSON.parse(localStorage.getItem('habits') || '[]');
 }
 
-// Function for user to use "Add habit" button and save it
-habitSubmit.addEventListener('click', () => {
-    const habitName = habitInput.value.trim();
-    if (habitName) {
-        const habits = loadHabits();
-        const newHabit = { name: habitName, progress: Array(7).fill(false) }; // Create an array of 7 booleans initially set to false
-        habits.push(newHabit);
-        saveHabits(habits);
-        renderHabitInTable(newHabit);
-        habitInput.value = ''; // Clear input field after habit submit
-    }
-});
-
 // Function to add new habit to weekly calendar table
 
 function renderHabitInTable(habit) {
@@ -47,6 +34,19 @@ function renderHabitInTable(habit) {
         cell.appendChild(checkbox);
         row.appendChild(cell);
     }
+
+// Add habit
+habitSubmit.addEventListener('click', () => {
+    const habitName = habitInput.value.trim();
+    if (habitName) {
+        const habits = loadHabits();
+        const newHabit = { name: habitName, progress: Array(7).fill(false) }; // Create an array of 7 booleans initially set to false
+        habits.push(newHabit);
+        saveHabits(habits);
+        renderHabitInTable(newHabit);
+        habitInput.value = ''; // Clear input field after habit submit
+    }
+});
 
 // Update habit progress in localStorage
 function updateHabitProgress(habitName, dayIndex, isChecked) {
