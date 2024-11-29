@@ -16,6 +16,7 @@ function loadHabits() {
 
 // Function to add new habit to weekly calendar table
 
+// Render habits
 function renderHabitInTable(habit) {
     const row = document.createElement('tr');
     
@@ -34,6 +35,18 @@ function renderHabitInTable(habit) {
         cell.appendChild(checkbox);
         row.appendChild(cell);
     }
+
+    // Add a "Remove" button within calendar
+    const removeCell = document.createElement('td');
+    const removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', () => {
+    removeHabit(habit.name);});
+    removeCell.appendChild(removeButton);
+    row.appendChild(removeCell);
+    
+    habitRows.appendChild(row);
+
 
 // Add habit
 habitSubmit.addEventListener('click', () => {
