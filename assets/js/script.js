@@ -40,13 +40,19 @@ function renderHabitInTable(habit) {
     const removeCell = document.createElement('td');
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
-    removeButton.addEventListener('click', () => {
-    removeHabit(habit.name);});
+    removeButton.addEventListener('click', () => { 
+    removeHabit(habit.name);}); // Call removeHabit function with the current habits name
     removeCell.appendChild(removeButton);
     row.appendChild(removeCell);
     
-    habitRows.appendChild(row);
-
+    habitRows.appendChild(row); // Append entire row to the habitRows container
+    
+    function removeHabit(habitName) {
+        let habits = loadHabits();
+        habits = habits.filter(habit => habit.name !== habitName);
+        saveHabits(habits);
+        loadHabits(); // Refresh table
+}
 
 // Add habit
 habitSubmit.addEventListener('click', () => {
