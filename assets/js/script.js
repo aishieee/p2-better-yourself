@@ -13,9 +13,12 @@ habitSubmit.addEventListener('click', function (event) {
 
 // Save habit to localStorage
 function saveHabit(habitName) {
-    const habits = JSON.parse(localStorage.getItem('habits') || '[]');
-    habits.push({ name: habitName, progress: Array(7).fill(false) });  // Add new habit to existing list
-    localStorage.setItem('habits', JSON.stringify(habits));  // Save habits to localStorage
+    localStorage.setItem('habits', JSON.stringify(habits));  
+}
+
+// Load habit from localStorage
+function loadHabits() {
+    return JSON.parse(localStorage.getItem('habits') || '[]');
 }
 
 // Add habit and save it
@@ -127,8 +130,3 @@ function renderHabitInTable(habit) {
         row.appendChild(cell);
     }
 }
-
-
-
-
-
