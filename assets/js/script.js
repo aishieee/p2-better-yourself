@@ -5,10 +5,16 @@ const resetHabits = document.getElementById('reset-habits');
 const habitRows = document.getElementById('habit-rows');
 
 // Function for user to use "Add habit" button 
-habitSubmit.addEventListener('click', function (event) {
-    event.preventDefault();
+habitSubmit.addEventListener('click', () => {
     const habitName = habitInput.value.trim();
-    console.log('Habit added:', habitName);  // For now, log habit name to the console
+    if (habitName) {
+        const habits = loadHabits();
+        const newHabit = { name: habitName, progress: Array(7).fill(false) };
+        habits.push(newHabit);
+        saveHabits(habits);
+        renderHabitInTable(newHabit);
+        habitInput.value = '';
+    }
 });
 
 // Save habit to localStorage
