@@ -83,3 +83,13 @@ function updateHabitProgress(habitName, dayIndex, isChecked) {
         localStorage.setItem('habits', JSON.stringify(habits));  // Save updated habits
     }
 }
+
+// Load and render habits 
+function loadAndRenderHabits() {
+    habitRows.innerHTML = ''; // Clear existing rows
+    const habits = loadHabits();
+    habits.forEach(habit => renderHabitInTable(habit));
+}
+
+// Initial load
+loadAndRenderHabits();
