@@ -47,12 +47,13 @@ function renderHabitInTable(habit) {
     
     habitRows.appendChild(row); // Append entire row to the habitRows container
     
+    // Remove Habit
     function removeHabit(habitName) {
         let habits = loadHabits();
         habits = habits.filter(habit => habit.name !== habitName);
         saveHabits(habits);
         loadHabits(); // Refresh table
-}
+        }
 
 // Add habit
 habitSubmit.addEventListener('click', () => {
@@ -65,6 +66,12 @@ habitSubmit.addEventListener('click', () => {
         renderHabitInTable(newHabit);
         habitInput.value = ''; // Clear input field after habit submit
     }
+});
+
+// Reset habits
+resetHabits.addEventListener('click', function () {
+    localStorage.removeItem('habits'); // Clear all habits
+    habitRows.innerHTML = '';         // Clear the table
 });
 
 // Update habit progress in localStorage
