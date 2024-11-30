@@ -40,6 +40,7 @@ function renderHabitInTable(habit) {
     const removeCell = document.createElement('td');
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
+    removeButton.className = 'remove-btn'; // for styling
     removeButton.addEventListener('click', () => {
         removeHabit(habit.name);
     });
