@@ -94,6 +94,14 @@ function removeHabit(habitName) {
 // Draw the progress pie chart based on habits completed 
 function drawProgressPieChart() {
     const habits = JSON.parse(localStorage.getItem('habits')) || [];
+    let totalDays = habits.length * 7;
+    let completedDays = 0;
+    
+    // Loop through each habit to calculate completed days
+    habits.forEach(habit => {
+    completedDays += habit.progress.filter(day => day).length;
+});
+
 }
 
 
