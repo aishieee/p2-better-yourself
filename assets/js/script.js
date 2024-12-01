@@ -104,6 +104,14 @@ function drawProgressPieChart() {
     let remainingDays = totalDays - completedDays; // Calculate the remaining days 
 });
 
+// Create the data table for the pie chart
+const data = google.visualization.arrayToDataTable([
+    ['Status', 'Days'],
+    ['Completed', completedDays], 
+    ['Remaining', remainingDays] 
+]);
+
+
 }
 
 
