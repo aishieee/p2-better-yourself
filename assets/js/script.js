@@ -91,7 +91,11 @@ function removeHabit(habitName) {
     loadAndRenderHabits(); // Refresh table
 }
 
-// Draw Google Charts
+// Draw the progress pie chart based on habits completed 
+function drawProgressPieChart() {
+    const habits = JSON.parse(localStorage.getItem('habits')) || [];
+}
+
 
 // Load and render habits
 function loadAndRenderHabits() {
