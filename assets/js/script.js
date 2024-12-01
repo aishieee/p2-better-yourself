@@ -100,6 +100,8 @@ function drawProgressPieChart() {
     // Loop through each habit to calculate completed days
     habits.forEach(habit => {
     completedDays += habit.progress.filter(day => day).length;
+    
+    let remainingDays = totalDays - completedDays; // Calculate the remaining days 
 });
 
 }
