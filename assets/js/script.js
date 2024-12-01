@@ -1,3 +1,6 @@
+// Load Google Charts
+google.charts.load('current', { packages: ['corechart', 'bar'] });
+
 // Select elements from the DOM
 const habitInput = document.getElementById('habit-input');
 const habitSubmit = document.getElementById('habit-submit');
@@ -87,6 +90,8 @@ function removeHabit(habitName) {
     saveHabits(habits);
     loadAndRenderHabits(); // Refresh table
 }
+
+// Draw Google Charts
 
 // Load and render habits
 function loadAndRenderHabits() {
