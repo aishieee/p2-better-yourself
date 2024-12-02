@@ -95,3 +95,50 @@ th {
     height: 300px;
 }
 
+/* Media Query */
+
+/* For small screens or mobile devices max-width 480px */
+
+@media (max-width: 480px) {
+    header, header h1 {
+        width: 100%;
+        text-align:left;
+    }
+
+/* Table styled as a column */
+table {
+    width: 100%; 
+}
+
+thead th {
+    display: none; 
+}
+
+thead th:first-child {
+    display: table-cell; 
+    text-align: center; 
+}
+
+tbody {
+    display: block; 
+}
+
+tbody tr {
+    display: flex;
+    flex-direction: column; 
+}
+
+  /* Chart containers styled in a column */
+  #charts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.chart-container {
+    width: 90%; 
+    height: 200px; 
+    margin-bottom: 15px; 
+}
+}
