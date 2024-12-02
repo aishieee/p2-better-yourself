@@ -111,7 +111,16 @@ const data = google.visualization.arrayToDataTable([
     ['Remaining', remainingDays] 
 ]);
 
+const options = {
+    title: 'Habit Completion Progress',
+    pieHole: 0.4,
+    colors: ['#ff66b3', '#f3f1f5'],
+    fontName: 'Poppins',
+    titleTextStyle: { color: '#8c52ff', fontSize: 16 }
+};
 
+const chart = new google.visualization.PieChart(document.getElementById('progress-pie-chart'));
+chart.draw(data, options);
 }
 
 
