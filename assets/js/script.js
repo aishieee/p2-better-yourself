@@ -138,10 +138,22 @@ function drawHabitBarChart() {
 const data = google.visualization.arrayToDataTable(
     habitData.length > 0 ? 
     [['Habit', 'Times Practiced'], ...habitData] : 
-    [['Habit', 'Times Practiced'], ['', 0]] 
+    [['Habit', 'Times Practiced'], ['', 0]] // Fallback for no habits 
 );
 
+const options = {
+    title: 'Habit Ranking', 
+    hAxis: { 
+        title: 'Times Practiced',
+        textStyle: { color: '#8c52ff', fontSize: 12 } 
+    },
+    colors: ['#8c52ff'], 
+    fontName: 'Poppins', 
+    titleTextStyle: { color: '#8c52ff', fontSize: 16 }
+};
 
+const chart = new google.visualization.BarChart(document.getElementById('habit-bar-chart'));
+chart.draw(data, options); 
 }
 
 
