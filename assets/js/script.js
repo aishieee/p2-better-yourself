@@ -175,5 +175,5 @@ function loadAndRenderHabits() {
 }
 
 // Initial load
-loadAndRenderHabits();
+loadHabits();
 
