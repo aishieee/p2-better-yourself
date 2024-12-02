@@ -97,9 +97,9 @@ th {
 
 /* Media Query */
 
-/* For small screens or mobile devices max-width 480px */
+/* For small screens or mobile devices max-width 375px */
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
     header, header h1 {
         width: 100%;
         text-align:left;
