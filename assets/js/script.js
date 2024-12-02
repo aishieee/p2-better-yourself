@@ -127,6 +127,13 @@ chart.draw(data, options);
 
 function drawHabitBarChart() {
     const habits = JSON.parse(localStorage.getItem('habits') || []);
+    // Transform habit data into an array of [habit name, times completed]
+    const habitData = habits.map(habit => {
+    // Count the number of true values in the progress array
+    const timesCompleted = habit.progress.filter(day => day).length;
+    return [habit.name, timesCompleted]; 
+});
+
 }
 
 
