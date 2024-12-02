@@ -123,6 +123,12 @@ const chart = new google.visualization.PieChart(document.getElementById('progres
 chart.draw(data, options);
 }
 
+// Draw the habit bar chart based on the amount of times each habit was completed
+
+function drawHabitBarChart() {
+    const habits = JSON.parse(localStorage.getItem('habits') || []);
+}
+
 
 // Load and render habits
 function loadAndRenderHabits() {
