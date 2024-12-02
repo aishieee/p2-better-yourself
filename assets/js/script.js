@@ -78,11 +78,12 @@ resetHabits.addEventListener('click', () => {
 
 // Update habit progress in localStorage
 function updateHabitProgress(habitName, dayIndex, isChecked) {
-    const habits = loadHabits();
+    const habits = JSON.parse(localStorage.getItem('habits') || '[]');
     const habit = habits.find(h => h.name === habitName);
     if (habit) {
         habit.progress[dayIndex] = isChecked;  // Update the progress for the specific day
         saveHabits(habits);  // Save updated habits
+        drawCharts(); // Update charts
     }
 }
 
