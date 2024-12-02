@@ -17,5 +17,13 @@ This project is a simple habit tracker built using HTML, CSS, and JavaScript. It
 - Pie chart: Shows the progress of habits completed versus remaining - stil not completed.
 - Bar chart: Ranks habits based on how many times they were completed - shows the amount of times each habit has been completed within the week
 
+# Testing
 
+## HTML
+
+![W3C HTML validator](assets/images/html-checker.png)
+
+## CSS
+
+![W3C CSS validator](assets/images/css-checker.png)
 
