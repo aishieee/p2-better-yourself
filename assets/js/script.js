@@ -1,3 +1,6 @@
+/* jshint esversion: 6 */
+/* global google */
+
 // Load Google Charts
 google.charts.load('current', { packages: ['corechart', 'bar'] });
 
@@ -31,17 +34,17 @@ function renderHabitInTable(habit) {
     row.appendChild(habitCell);
 
     // Add checkboxes for each day of the week
-    for (let i = 0; i < 7; i++) {
+    habit.progress.forEach((checked, i) => {
         const cell = document.createElement('td');
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.checked = habit.progress[i] || false;
-        checkbox.addEventListener('change', () => {
-            updateHabitProgress(habit.name, i, checkbox.checked);
+        checkbox.checked = checked;
+        checkbox.addEventListener('change', function() {
+            updateHabitProgress(habit.name, i, this.checked);
         });
         cell.appendChild(checkbox);
         row.appendChild(cell);
-    }
+    });
 
     // Add a "Remove" button
     const removeCell = document.createElement('td');
@@ -106,68 +109,55 @@ function drawCharts() {
 function drawProgressPieChart() {
     const habits = JSON.parse(localStorage.getItem('habits')) || [];
     let totalDays = habits.length * 7;
-    let completedDays = 0;
-    
-    // Loop through each habit to calculate completed days
-    habits.forEach(habit => {
-    completedDays += habit.progress.filter(day => day).length;
-});
+    let completedDays = habits.reduce((sum, habit) => sum + habit.progress.filter(day => day).length, 0);
+    let remainingDays = totalDays - completedDays; // Calculate the remaining days
 
-let remainingDays = totalDays - completedDays; // Calculate the remaining days
+    const data = google.visualization.arrayToDataTable([
+        ['Status', 'Days'],
+        ['Completed', completedDays], 
+        ['Remaining', remainingDays]
+    ]);
 
-// Create the data table for the pie chart
-const data = google.visualization.arrayToDataTable([
-    ['Status', 'Days'],
-    ['Completed', completedDays], 
-    ['Remaining', remainingDays] 
-]);
+    const options = {
+        title: 'Habit Completion Progress',
+        pieHole: 0.4,
+        colors: ['#ff66b3', '#f3f1f5'],
+        fontName: 'Poppins',
+        titleTextStyle: { color: '#8c52ff', fontSize: 16 }
+    };
 
-const options = {
-    title: 'Habit Completion Progress',
-    pieHole: 0.4,
-    colors: ['#ff66b3', '#f3f1f5'],
-    fontName: 'Poppins',
-    titleTextStyle: { color: '#8c52ff', fontSize: 16 }
-};
-
-const chart = new google.visualization.PieChart(document.getElementById('progress-pie-chart'));
-chart.draw(data, options);
+    const chart = new google.visualization.PieChart(document.getElementById('progress-pie-chart'));
+    chart.draw(data, options);
 }
 
 // Draw the habit bar chart based on the amount of times each habit was completed
-
 function drawHabitBarChart() {
     const habits = JSON.parse(localStorage.getItem('habits') || []);
-    // Transform habit data into an array of [habit name, times completed]
-    const habitData = habits.map(habit => {
-    // Count the number of true values in the progress array
-    const timesCompleted = habit.progress.filter(day => day).length;
-    return [habit.name, timesCompleted]; 
-});
+    const habitData = habits.map(habit => [habit.name, habit.progress.filter(day => day).length]);
 
-// Create the data table for the bar chart
-const data = google.visualization.arrayToDataTable(
-    habitData.length > 0 ? 
-    [['Habit', 'Times Practiced'], ...habitData] : 
-    [['Habit', 'Times Practiced'], ['', 0]] // Fallback for no habits 
-);
+    const data = google.visualization.arrayToDataTable(
+        habitData.length > 0 ? 
+        [['Habit', 'Times Practiced'], ...habitData] : 
+        [['Habit', 'Times Practiced'], ['', 0]] // Fallback for no habits 
+    );
 
-const options = {
-    title: 'Habit Ranking', 
-    hAxis: { 
-        title: 'Times Practiced',
-        textStyle: { color: '#8c52ff', fontSize: 12 } 
-    },
-    colors: ['#8c52ff'], 
-    fontName: 'Poppins', 
-    titleTextStyle: { color: '#8c52ff', fontSize: 16 },
-    legend: 'none',
-};
+    const options = {
+        title: 'Habit Ranking', 
+        hAxis: { 
+            title: 'Times Practiced',
+            textStyle: { color: '#8c52ff', fontSize: 12 } 
+        },
+        colors: ['#8c52ff'], 
+        fontName: 'Poppins', 
+        titleTextStyle: { color: '#8c52ff', fontSize: 16 },
+        legend: 'none',
+    };
 
-const chart = new google.visualization.BarChart(document.getElementById('habit-bar-chart'));
-chart.draw(data, options); 
+    const chart = new google.visualization.BarChart(document.getElementById('habit-bar-chart'));
+    chart.draw(data, options); 
 }
 
 // Initial load
 loadHabits();
+
 
