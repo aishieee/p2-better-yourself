@@ -160,7 +160,8 @@ const options = {
     },
     colors: ['#8c52ff'], 
     fontName: 'Poppins', 
-    titleTextStyle: { color: '#8c52ff', fontSize: 16 }
+    titleTextStyle: { color: '#8c52ff', fontSize: 16 },
+    legend: 'none',
 };
 
 const chart = new google.visualization.BarChart(document.getElementById('habit-bar-chart'));
