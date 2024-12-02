@@ -142,3 +142,56 @@ tbody tr {
     margin-bottom: 15px; 
 }
 }
+
+/* Media Query for tablets */
+@media (min-width: 768px) {
+    #habit-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #habit-input {
+        margin-right: 10px;
+        flex-grow: 1;
+    }
+
+    #habit-submit, #reset-habits {
+        flex-shrink: 0;
+        width: auto;
+    }
+
+    #charts {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .chart-container {
+        width: 45%;
+        height: 300px;
+    }
+}
+
+/* Media Query for desktops and larger devices */
+@media (min-width: 1024px) {
+    th, td {
+        font-size: 16px;
+    }
+
+    header {
+        font-size: 24px;
+    }
+
+    #habit-input {
+        font-size: 18px;
+        width: 400px;
+    }
+
+    #habit-submit, #reset-habits {
+        font-size: 16px;
+    }
+
+    .chart-container {
+        height: 400px;
+    }
+}
