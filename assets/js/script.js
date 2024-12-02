@@ -134,6 +134,14 @@ function drawHabitBarChart() {
     return [habit.name, timesCompleted]; 
 });
 
+// Create the data table for the bar chart
+const data = google.visualization.arrayToDataTable(
+    habitData.length > 0 ? 
+    [['Habit', 'Times Practiced'], ...habitData] : 
+    [['Habit', 'Times Practiced'], ['', 0]] 
+);
+
+
 }
 
 
