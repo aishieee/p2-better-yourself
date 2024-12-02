@@ -89,10 +89,10 @@ function updateHabitProgress(habitName, dayIndex, isChecked) {
 
 // Remove habit
 function removeHabit(habitName) {
-    let habits = loadHabits();
+    let habits = JSON.parse(localStorage.getItem('habits') || '[]');
     habits = habits.filter(habit => habit.name !== habitName);
     saveHabits(habits);
-    loadAndRenderHabits(); // Refresh table
+    loadHabits(); // Refresh table after removal
 }
 
 // Draw Google charts
