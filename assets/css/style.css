@@ -80,4 +80,18 @@ th {
     background-color: #ff4d4d;
 }
 
+/* Google chart container */
+#charts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.chart-container {
+    width: 95%;
+    max-width: 600px;
+    height: 300px;
+}
 
