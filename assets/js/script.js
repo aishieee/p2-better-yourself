@@ -14,7 +14,10 @@ function saveHabits(habits) {
 
 // Load habits from localStorage
 function loadHabits() {
-    return JSON.parse(localStorage.getItem('habits') || '[]');
+    habitRows.innerHTML = ''; // Clear existing rows before loading
+    const habits = JSON.parse(localStorage.getItem('habits') || '[]');
+    habits.forEach(habit => renderHabitInTable(habit));
+    drawCharts(); // Draw charts after loading habits
 }
 
 // Render habits
