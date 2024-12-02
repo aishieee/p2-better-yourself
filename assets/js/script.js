@@ -18,6 +18,7 @@ function loadHabits() {
     const habits = JSON.parse(localStorage.getItem('habits') || '[]');
     habits.forEach(habit => renderHabitInTable(habit));
     drawCharts(); // Draw charts after loading habits
+    return habits;
 }
 
 // Render habits
@@ -61,7 +62,7 @@ function renderHabitInTable(habit) {
 habitSubmit.addEventListener('click', () => {
     const habitName = habitInput.value.trim();
     if (habitName) {
-        const habits = loadHabits();
+        const habits = JSON.parse(localStorage.getItem('habits') || '[]');
         const newHabit = { name: habitName, progress: Array(7).fill(false) }; // Array of 7 booleans set to false
         habits.push(newHabit);
         saveHabits(habits);
@@ -110,9 +111,9 @@ function drawProgressPieChart() {
     // Loop through each habit to calculate completed days
     habits.forEach(habit => {
     completedDays += habit.progress.filter(day => day).length;
-    
-    let remainingDays = totalDays - completedDays; // Calculate the remaining days 
 });
+
+let remainingDays = totalDays - completedDays; // Calculate the remaining days
 
 // Create the data table for the pie chart
 const data = google.visualization.arrayToDataTable([
@@ -164,14 +165,6 @@ const options = {
 
 const chart = new google.visualization.BarChart(document.getElementById('habit-bar-chart'));
 chart.draw(data, options); 
-}
-
-
-// Load and render habits
-function loadAndRenderHabits() {
-    habitRows.innerHTML = ''; // Clear existing rows
-    const habits = loadHabits();
-    habits.forEach(habit => renderHabitInTable(habit));
 }
 
 // Initial load
