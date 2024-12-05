@@ -1,5 +1,7 @@
 # Habit Tracker - Better Yourself
 
+![Website mockup](assets/images/p2-mockup.png)
+
 This project is a simple yet effective habit tracker built using HTML, CSS, and JavaScript. It enables users to track their habits throughout the week, empowering them to improve their behaviour and discipline. Users can add new habits, log their daily progress, and visualise this achievement through interactive Google Charts. The site uses the browser's localStorage to save habits and progress across sessions.
 
 # Project Goals 
