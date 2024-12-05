@@ -87,6 +87,29 @@ After implementing these changes, I re-ran JSHint, and no further warnings were 
 
 ![Google Chrome developer](assets/images/accessibility.png)
 
+# Bugs
+
+Problem: The first issues encountered was related to saving, removing, and rendering habits in the table:
+
+1. Habits were not correctly saved: When new habits were added, they were not properly stored in localStorage.
+2. Habit removal did not update the table: After removing a habit, the table did not refresh to reflect the changes.
+3. Table rendering issues: The habit table did not display the current state of habits correctly after adding or removing habits.
+
+
+Fix:
+- Initially, there was an incorrect implementation of the saveHabit function, which was not properly saving the habits to localStorage. I removed repeated localStorage.setItem('habits', JSON.stringify(habits)); and merged this logic into a simpler saveHabits function. 
+
+Problem: Inefficiencies and redundant operations, which led to performance issues and unnecessary complexity in the code. 
+
+4. The loadAndRenderHabits function duplicated functionality already handled by loadHabits.
+5. The addHabit logic did not handle the case where no habits were initially present in localStorage.
+6. The calculation for remaining days in the progress charts was performed inside a loop
+
+Fix:
+- The loadHabits function was updated to directly handle rendering habits in the table by calling renderHabitInTable for each habit which removed the need for the loadAndRenderHabits function. 
+- Previously, addHabit did not properly initialise the habits array if it was empty. I fixed this by ensuring that the habits array is initialised with either the existing habits from localStorage or an empty array if none exist.
+- The remainingDays calculation for the progress chart was moved outside the loop to prevent unnecessary recalculations for each habit
+
 # Deployment 
 
 #### Version Control 
