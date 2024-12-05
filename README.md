@@ -40,11 +40,49 @@ Bar Chart: Represents habits based on the number of times they were completed du
 
 # Testing
 
-## HTML
+### HTML
+
+[W3C HTML Validator](https://validator.w3.org/) was run to check the index.html code. There were no errors or warnings found.
 
 ![W3C HTML validator](assets/images/html-checker.png)
 
-## CSS
+### CSS
+
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was run to check the style.css code. There were no errors found.
 
 ![W3C CSS validator](assets/images/css-checker.png)
+
+### Javascript
+
+[JSHint](https://jshint.com/) was used to check the script.js code. 
+
+Code Metrics: 
+
+**Analysed Number of Functions:** 20
+**Function Arguments:**
+- Largest signature: 3 arguments
+- Median signature: 1 argument
+**Function Size:**
+- Largest function: 13 statements
+- Median function: 1.5 statements
+**Cyclomatic Complexity:**
+- Most complex function: 3
+- Median complexity: 1
+
+JSHint Warnings and Fixes:
+
+Initially, there were warnings related to the use of ECMAScript 6 (ES6) features, which were not recognised by JSHint. Also, JSHint flagged Google as an unrecognised variable since I was using this for my charts. To address these issues, I added the necessary configuration at the beginning of the file to ensure ES6 compatibility. Additionally, I replaced inline comments above each function with docstrings for improved clarity and documentation.
+
+After implementing these changes, I re-ran JSHint, and no further warnings were detected.
+
+![JSHint](assets/images/jshint.png)
+
+### Accessibility 
+
+- I inspected the website using Google Chrome Developer tools and ran the pages through Lighthouse. This confirmed that the colours and fonts are easy to read, and the site is accessible, as it received all green scores.
+
+- I tested and confirmed that the page works in different browsers; Chrome, Safari and Firefox.
+
+![Google Chrome developer](assets/images/accessibility.png)
+
 
