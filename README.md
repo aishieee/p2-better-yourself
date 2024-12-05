@@ -144,4 +144,34 @@ Live link: <a href="https://aishieee.github.io/p2-better-yourself/">Project 2 - 
 
 This action creates a local clone of the project.
 
+# Technologies Used
+
+**Languages:**
+- HTML
+- CSS
+- JavaScript
+
+**Frameworks & Tools:**
+- Git
+- GitHub
+- Google fonts
+- Google Charts
+- JSHint
+- W3C Markup validation service
+- W3C Jigsaw CSS validation service
+
+# Credits 
+
+**Content**
+
+- The text used to style the header was taken from [Google fonts](https://fonts.google.com/)
+- The charts used to generate habit progress were imported from [Google Charts](https://developers.google.com/chart)
+- I would like to give a special thanks to my mentor [Spencer Barriball](https://www.linkedin.com/in/spencerbarriball/), whose amazing support and guidance have helped me during this project.
+
+
+
+
+
+
+
 
