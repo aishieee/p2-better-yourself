@@ -17,18 +17,26 @@ Site owner goals:
 
 # Features
 
-**1. Add and remove habits**: Users can input any habit they want to track and see it appear in a table
-- Add a new habit to the list.
-- Remove a habit from the list.
-- Data (habits) stay on page/save even after page reload.
+### 1. Habit Management
 
-**2. Track progress**: Each day of the week can be marked as completed with a checkbox
-- Check off habit under the day of the week it has been completed 
-- Remove habit from weekly calendar if it is not needed to be tracked anymore
+**Add New Habits:** Users can input any habit they want to track using the input field. New habits appear in a dynamic table.
+**Reset All Habits:** Users can clear all habits from the table and reset their progress to start fresh.
 
-**3. Charts**: Two interactive Google charts are used to visualise progress
-- Pie chart: Shows the progress of habits completed versus remaining - stil not completed.
-- Bar chart: Ranks habits based on how many times they were completed - shows the amount of times each habit has been completed within the week
+![Habit input field](assets/images/habit-management.png)
+
+### 2. Habit Tracking Table
+**Daily Progress Tracking:** Users can mark each day of the week as completed using a row of checkboxes for every habit.
+**Data Storage:** All habits and progress are saved using the browser's localStorage, ensuring data remains available even after the page reloads.
+**Remove Habits:** Users can delete individual habits they no longer wish to track.
+
+![Habit tracking table](assets/images/table.png)
+
+### 3. Progress Visualisation
+**Interactive Google Charts:** Two charts provide a clear visual on habit progress:
+Pie Chart: Displays the proportion of completed versus remaining (incomplete) habit days for the week.
+Bar Chart: Represents habits based on the number of times they were completed during the week, showing a visual summary of performance.
+
+![Google Charts](assets/images/charts.png)
 
 # Testing
 
