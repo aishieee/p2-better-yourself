@@ -1,21 +1,32 @@
 /* jshint esversion: 6 */
 /* global google */
 
-// Load Google Charts
+/**
+ * Load Google Charts library with required packages.
+ */
 google.charts.load('current', { packages: ['corechart', 'bar'] });
 
-// Select elements from the DOM
+/**
+ * Select elements from the DOM for interaction.
+ */
 const habitInput = document.getElementById('habit-input');
 const habitSubmit = document.getElementById('habit-submit');
 const resetHabits = document.getElementById('reset-habits');
 const habitRows = document.getElementById('habit-rows');
 
-// Save habits to localStorage
+/**
+ * Save the list of habits to the browser's localStorage.
+ * @param {Array} habits - Array of habit objects to save.
+ */
 function saveHabits(habits) {
     localStorage.setItem('habits', JSON.stringify(habits));
 }
 
-// Load habits from localStorage
+/**
+ * Load the list of habits from the browser's localStorage
+ * and render them in the habit table. Updates the charts.
+ * @returns {Array} - Array of habit objects loaded from localStorage.
+ */
 function loadHabits() {
     habitRows.innerHTML = ''; // Clear existing rows before loading
     const habits = JSON.parse(localStorage.getItem('habits') || '[]');
@@ -24,7 +35,11 @@ function loadHabits() {
     return habits;
 }
 
-// Render habits
+/**
+ * Render a single habit in the habit table, including name, progress checkboxes, 
+ * and a remove button.
+ * @param {Object} habit - The habit object to render.
+ */
 function renderHabitInTable(habit) {
     const row = document.createElement('tr');
     
@@ -61,7 +76,9 @@ function renderHabitInTable(habit) {
     habitRows.appendChild(row);
 }
 
-// Add habit
+/**
+ * Add a new habit when the user submits the form.
+ */
 habitSubmit.addEventListener('click', () => {
     const habitName = habitInput.value.trim();
     if (habitName) {
@@ -74,13 +91,20 @@ habitSubmit.addEventListener('click', () => {
     }
 });
 
-// Reset habits
+/**
+ * Reset all habits by clearing localStorage and the table.
+ */
 resetHabits.addEventListener('click', () => {
     localStorage.removeItem('habits'); // Clear all habits
     habitRows.innerHTML = '';         // Clear the table
 });
 
-// Update habit progress in localStorage
+/**
+ * Update the progress of a habit for a specific day and save the changes.
+ * @param {string} habitName - The name of the habit to update.
+ * @param {number} dayIndex - The index of the day in the progress array.
+ * @param {boolean} isChecked - Whether the habit was marked as completed.
+ */
 function updateHabitProgress(habitName, dayIndex, isChecked) {
     const habits = JSON.parse(localStorage.getItem('habits') || '[]');
     const habit = habits.find(h => h.name === habitName);
@@ -91,7 +115,10 @@ function updateHabitProgress(habitName, dayIndex, isChecked) {
     }
 }
 
-// Remove habit
+/**
+ * Remove a habit from the table and localStorage by its name.
+ * @param {string} habitName - The name of the habit to remove.
+ */
 function removeHabit(habitName) {
     let habits = JSON.parse(localStorage.getItem('habits') || '[]');
     habits = habits.filter(habit => habit.name !== habitName);
@@ -99,13 +126,17 @@ function removeHabit(habitName) {
     loadHabits(); // Refresh table after removal
 }
 
-// Draw Google charts
+/**
+ * Draw both the progress pie chart and the habit bar chart using Google Charts.
+ */
 function drawCharts() {
     drawProgressPieChart();
     drawHabitBarChart();
 }
 
-// Draw the progress pie chart based on habits completed 
+/**
+ * Draw a pie chart showing the proportion of completed and remaining habit days.
+ */
 function drawProgressPieChart() {
     const habits = JSON.parse(localStorage.getItem('habits')) || [];
     let totalDays = habits.length * 7;
@@ -130,7 +161,9 @@ function drawProgressPieChart() {
     chart.draw(data, options);
 }
 
-// Draw the habit bar chart based on the amount of times each habit was completed
+/**
+ * Draw a bar chart showing how many times each habit was practiced.
+ */
 function drawHabitBarChart() {
     const habits = JSON.parse(localStorage.getItem('habits') || []);
     const habitData = habits.map(habit => [habit.name, habit.progress.filter(day => day).length]);
@@ -157,7 +190,7 @@ function drawHabitBarChart() {
     chart.draw(data, options); 
 }
 
-// Initial load
+/**
+ * Load habits and initialize the app on page load.
+ */
 loadHabits();
-
-
